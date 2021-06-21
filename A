@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+    int k;
+    cin>>k;
+    int n;
+    cin>>n;
+    vector<pair<int,int>>v;
+    for(int i=0;i<n;i++){
+    int num;
+    cin>>num;
+    v.push_back(make_pair(num,i+1));
+    }
+    sort(v.begin(), v.end());
+    
+    int a,b;
+    
+    int low=0;
+    int high=n-1;
+    while(low<high){
+        int sum=v[low].first+v[high].first;
+        
+        if(sum==k){
+            int a=v[low].second;
+            int b=v[high].second;
+            if(a<=b)
+            cout<<a<<" "<<b<<endl;
+            else cout<<b<<" "<<a<<endl;
+            break;
+        }
+        else if(sum<k)
+        low++;
+        else high--;
+        
+    }
+    
+    
+    
+    }
+
+    return 0;
+}
